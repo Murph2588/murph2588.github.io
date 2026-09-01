@@ -4,6 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ryan Murphy</title>
+<meta name="description" content="Ryan Murphy helps professionals and teams organize, grow, and develop through AI — a customer success leader who builds the AI tools his own team runs on.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ryan Murphy — Customer Success & AI Enablement">
+<meta property="og:description" content="Helping professionals and teams organize, grow, and develop through AI. Built and shipped a company-wide AI prompt library, an AI-driven re-engagement workflow, and more.">
+<meta property="og:image" content="https://murph2588.github.io/og-image.png">
+<meta property="og:url" content="https://murph2588.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ryan Murphy — Customer Success & AI Enablement">
+<meta name="twitter:description" content="Helping professionals and teams organize, grow, and develop through AI.">
+<meta name="twitter:image" content="https://murph2588.github.io/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -187,6 +197,31 @@
   .btn.primary{ background:var(--accent); border-color:var(--accent); color:#211a0c; }
   .btn.primary:hover{ background:var(--ink); color:var(--bg); }
 
+  .hero-stats{
+    margin-top:2.4rem;
+    padding-top:1.6rem;
+    border-top:1px solid var(--line);
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.8rem 2.4rem;
+    opacity:0; animation:rise .8s ease forwards; animation-delay:.36s;
+  }
+  .hero-stat{ display:flex; flex-direction:column; gap:0.25rem; }
+  .hero-stat-num{
+    font-family:var(--font-display);
+    font-size:1.9rem;
+    line-height:1;
+    color:var(--ink);
+  }
+  .hero-stat-label{
+    font-family:var(--font-mono);
+    font-size:0.66rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    max-width:11rem;
+  }
+
   @keyframes rise{ from{ opacity:0; transform:translateY(14px); } to{ opacity:1; transform:translateY(0); } }
 
   .portrait{
@@ -261,6 +296,14 @@
   .record-item:last-child{ border-bottom:1px solid var(--line-soft); }
   .record-item h3{ font-size:1.25rem; margin-bottom:0.4rem; }
   .record-item p{ color:var(--ink-soft); max-width:56ch; }
+  .record-case{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1.3rem;
+    margin-top:0.9rem;
+  }
+  .record-case .kicker{ display:block; margin-bottom:0.35rem; }
+  .record-case p{ color:var(--ink-soft); max-width:none; font-size:0.92rem; line-height:1.45; }
   .record-live-link{
     display:inline-block;
     margin-top:0.6rem;
@@ -364,20 +407,20 @@
   .guide-note{ margin-top:0.7rem; font-size:0.85rem; color:var(--ink-soft); max-width:42ch; }
 
   /* ============================================================
-     NEWSLETTER
+     FIELD NOTES
      ============================================================ */
-  .newsletter{ border-top:1px solid var(--line); }
-  .newsletter .section-inner{ display:grid; grid-template-columns:16rem 1fr; gap:3rem; }
-  .newsletter h2{ font-size:2.1rem; }
-  .newsletter-meta{ margin-top:0.5rem; color:var(--ink-soft); font-size:0.85rem; }
-  .newsletter-list{ display:flex; flex-direction:column; }
-  .newsletter-item{
+  .notes{ border-top:1px solid var(--line); }
+  .notes .section-inner{ display:grid; grid-template-columns:16rem 1fr; gap:3rem; }
+  .notes h2{ font-size:2.1rem; }
+  .notes-meta{ margin-top:0.5rem; color:var(--ink-soft); font-size:0.95rem; max-width:var(--measure); }
+  .notes-list{ display:flex; flex-direction:column; }
+  .notes-item{
     display:grid; grid-template-columns:9rem 1fr; gap:1.5rem;
     padding:1.4rem 0;
     border-top:1px solid var(--line-soft);
   }
-  .newsletter-item:last-child{ border-bottom:1px solid var(--line-soft); }
-  .newsletter-item .ndate{
+  .notes-item:last-child{ border-bottom:1px solid var(--line-soft); }
+  .notes-item .ndate{
     padding-top:0.2rem;
     font-family:var(--font-mono);
     font-size:0.72rem;
@@ -385,17 +428,8 @@
     text-transform:uppercase;
     color:var(--accent-2);
   }
-  .newsletter-item h3{ font-size:1.15rem; margin-bottom:0.35rem; }
-  .newsletter-item h3 a{ text-decoration:none; border-bottom:1px solid var(--line); }
-  .newsletter-item h3 a:hover{ border-color:var(--accent); color:var(--accent); }
-  .newsletter-item p{ color:var(--ink-soft); max-width:56ch; }
-  .newsletter-empty{
-    padding:1.6rem 0;
-    border-top:1px solid var(--line-soft);
-    border-bottom:1px solid var(--line-soft);
-    color:var(--ink-soft);
-  }
-  .newsletter-empty strong{ color:var(--ink); }
+  .notes-item h3{ font-size:1.15rem; margin-bottom:0.35rem; }
+  .notes-item p{ color:var(--ink-soft); max-width:56ch; }
 
   /* ============================================================
      ASK (AI assistant)
@@ -506,12 +540,13 @@
     .focus .section-inner,
     .creds .section-inner,
     .guide .section-inner,
-    .newsletter .section-inner,
+    .notes .section-inner,
     .ask .section-inner,
     .work .section-inner,
     .contact .section-inner{ grid-template-columns:1fr; gap:1.4rem; }
-    .focus-item, .newsletter-item{ grid-template-columns:1fr; gap:0.4rem; }
+    .focus-item, .notes-item{ grid-template-columns:1fr; gap:0.4rem; }
     .creds-grid{ grid-template-columns:1fr; }
+    .record-case{ grid-template-columns:1fr; gap:0.8rem; }
     .work-cards{ grid-template-columns:1fr; }
     section{ padding:3.5rem var(--gutter); }
     .topnav{ gap:0.85rem; }
@@ -533,6 +568,7 @@
     <a href="#record">Record</a>
     <a href="#focus">Focus</a>
     <a href="#credentials">Credentials</a>
+    <a href="#notes">Notes</a>
     <a href="#guide">Guide</a>
     <a href="#ask">Ask</a>
     <a href="#work">Work</a>
@@ -549,6 +585,24 @@
       <div class="hero-actions">
         <a class="btn primary" href="mailto:ryanseanmurphy@yahoo.com">Email me</a>
         <a class="btn" href="https://www.linkedin.com/in/ryan-murphy-52191629/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">18</span>
+          <span class="hero-stat-label">Years in CS &amp; sales</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">50+</span>
+          <span class="hero-stat-label">Enterprise accounts guided</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">8</span>
+          <span class="hero-stat-label">Anthropic Academy courses</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">30-day</span>
+          <span class="hero-stat-label">Full platform migrations</span>
+        </div>
       </div>
     </div>
 
@@ -592,24 +646,89 @@
     <div class="record-list">
       <div class="record-item">
         <h3>Ask Arc Prompt Library, company-wide</h3>
-        <p>What started as my own cheat sheet is now published in TrustArc's Help Center, referenced in customer webinars, and used by Customer Success, Sales, and Marketing teams across the company.</p>
+        <div class="record-case">
+          <div>
+            <span class="kicker">Challenge</span>
+            <p>Reps and CSMs were relying on tribal knowledge to get good results out of TrustArc's AI assistant — inconsistent prompts, no shared starting point.</p>
+          </div>
+          <div>
+            <span class="kicker">Approach</span>
+            <p>Built an eleven-section prompt library by hand, organized by product area, then pushed to get it published as an official resource rather than a personal doc.</p>
+          </div>
+          <div>
+            <span class="kicker">Outcome</span>
+            <p>Now published in TrustArc's Help Center, referenced in customer webinars, and used by Customer Success, Sales, and Marketing teams company-wide.</p>
+          </div>
+        </div>
         <a class="record-live-link" href="https://trustarchelp.zendesk.com/hc/en-us/articles/51665827947539-Ask-Arc-Prompt-Library#general" target="_blank" rel="noopener">See it live in TrustArc's Help Center ↗</a>
       </div>
       <div class="record-item">
         <h3>Co-presenter, "Privacy in Practice"</h3>
-        <p>A recurring customer webinar series on getting real value from AI in privacy work — annual-lookback reporting, GDPR Article 30 gap analysis, AI and system-risk assessment.</p>
+        <div class="record-case">
+          <div>
+            <span class="kicker">Challenge</span>
+            <p>Customers wanted practical guidance on using AI in privacy work, not another theoretical webinar.</p>
+          </div>
+          <div>
+            <span class="kicker">Approach</span>
+            <p>Co-designed and co-present a recurring session built entirely around real workflows — annual-lookback reporting, GDPR Article 30 gap analysis, AI and system-risk assessment.</p>
+          </div>
+          <div>
+            <span class="kicker">Outcome</span>
+            <p>A standing customer touchpoint that keeps coming back by request, not obligation.</p>
+          </div>
+        </div>
       </div>
       <div class="record-item">
         <h3>Cross-region migration in ~30 minutes</h3>
-        <p>Used AI-assisted tooling to move a customer's records between regions in a fraction of the usual time, with data quality that came in ahead of expectations.</p>
+        <div class="record-case">
+          <div>
+            <span class="kicker">Challenge</span>
+            <p>A customer needed records moved between regions — normally days of manual mapping and validation.</p>
+          </div>
+          <div>
+            <span class="kicker">Approach</span>
+            <p>Used AI-assisted tooling to handle the mapping and validation in one pass instead of by hand.</p>
+          </div>
+          <div>
+            <span class="kicker">Outcome</span>
+            <p>Done in about 30 minutes, with data quality ahead of what the manual process typically delivered.</p>
+          </div>
+        </div>
       </div>
       <div class="record-item">
         <h3>Full platform migration inside 30 days</h3>
-        <p>Stood up a new enterprise customer end-to-end on a 30-day timeline, on top of a separate multi-month project moving 200+ historical requests off a competitor's platform.</p>
+        <div class="record-case">
+          <div>
+            <span class="kicker">Challenge</span>
+            <p>A new enterprise customer needed to be live fast, while a separate legacy migration of 200+ historical requests off a competitor's platform was still in progress.</p>
+          </div>
+          <div>
+            <span class="kicker">Approach</span>
+            <p>Ran both in parallel — a tight 30-day implementation plan for the new customer, and a structured multi-month plan for the historical backlog.</p>
+          </div>
+          <div>
+            <span class="kicker">Outcome</span>
+            <p>New customer live in 30 days; the historical migration completed cleanly over the following months.</p>
+          </div>
+        </div>
       </div>
       <div class="record-item">
         <h3>Built an AI-driven re-engagement workflow</h3>
-        <p>A Salesforce-connected skill that flags accounts gone quiet and drafts the outreach — now used team-wide and cited by leadership as an example of AI's impact on the CS org.</p>
+        <div class="record-case">
+          <div>
+            <span class="kicker">Challenge</span>
+            <p>Accounts going quiet weren't getting caught until renewal conversations were already tense.</p>
+          </div>
+          <div>
+            <span class="kicker">Approach</span>
+            <p>Built a Salesforce-connected skill that flags accounts with no recent activity and drafts a tailored outreach for review.</p>
+          </div>
+          <div>
+            <span class="kicker">Outcome</span>
+            <p>Adopted team-wide and cited by leadership as a model for AI's impact on the CS org.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -735,21 +854,33 @@
   </div>
 </section>
 
-<section class="newsletter" id="newsletter" hidden>
+<section class="notes tab-panel" id="notes">
   <div class="section-inner">
     <div class="heading-col">
-      <h2>Recent posts</h2>
-      <p class="newsletter-meta" id="newsletter-meta"></p>
+      <h2>Field Notes</h2>
+      <p class="notes-meta">Short, practitioner-level notes on building and shipping AI tools inside a customer success org — what worked, what didn't, and what I'd do differently.</p>
     </div>
-    <div id="newsletter-body">
-      <!--
-        NEWSLETTER ARTICLES
-        This list is generated from the NEWSLETTER_ARTICLES array in the
-        <script> near the bottom of this file. To sync it automatically
-        from an RSS feed, see the comment above that array.
-      -->
-      <div class="newsletter-empty">
-        <strong>Newsletter sync isn't connected yet.</strong> Once it is, new posts will appear here automatically — no manual updates.
+    <div class="notes-list">
+      <div class="notes-item">
+        <span class="ndate">Sep 2026</span>
+        <div>
+          <h3>Why I stopped writing prompts and started writing a playbook</h3>
+          <p>A good prompt that lives in your head helps exactly one person: you. The Ask Arc Prompt Library only became useful company-wide once I stopped treating it as my own cheat sheet and started writing it for someone who'd never seen the tool before.</p>
+        </div>
+      </div>
+      <div class="notes-item">
+        <span class="ndate">Aug 2026</span>
+        <div>
+          <h3>The best AI tool is the one your team already trusts</h3>
+          <p>Our re-engagement workflow didn't get adopted because it was clever — it got adopted because it slotted into a habit people already had. The lesson: build the AI into the workflow, not a new workflow around the AI.</p>
+        </div>
+      </div>
+      <div class="notes-item">
+        <span class="ndate">Aug 2026</span>
+        <div>
+          <h3>What eight Anthropic courses taught me that customer calls didn't</h3>
+          <p>Working through Anthropic Academy's courses back-to-back this year, the biggest shift wasn't technical — it was realizing that "agentic" work means designing a process someone else can run, not just getting a good answer yourself once.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -824,13 +955,11 @@
    TAB NAVIGATION
    ------------------------------------------------------------
    Each top-level section (About, Record, Focus, Credentials,
-   Guide, Ask, Work, Connect) is its own tab: only one .tab-panel
-   is shown at a time, switched by clicking a nav link. The URL
-   hash tracks the open tab, so a link like yoursite.com/#work
+   Notes, Guide, Ask, Work, Connect) is its own tab: only one
+   .tab-panel is shown at a time, switched by clicking a nav link.
+   The URL hash tracks the open tab, so a link like yoursite.com/#work
    opens straight to that section, and the browser's back/forward
-   buttons move between tabs too. The Newsletter section has no
-   tab yet (it's turned off — see its own comment further down)
-   and stays out of this rotation entirely.
+   buttons move between tabs too.
 
    The Ask tab is a special case: it only works inside a Claude-
    hosted view (it needs the "sample" capability, which doesn't
@@ -962,62 +1091,6 @@ const FIELD_GUIDE_FILENAME = "the-ai-first-csm-field-guide.pdf";
 })();
 
 /* ============================================================
-   NEWSLETTER SYNC
-   ------------------------------------------------------------
-   This page cannot fetch an external RSS feed itself (browser
-   security rules block that). Instead, this array is refreshed
-   by a scheduled job that reads the real feed and republishes
-   this page with the latest entries baked in below. Nothing here
-   needs manual editing once that's connected — leave this array
-   for the sync job to overwrite.
-   Shape: { title, url, date (YYYY-MM-DD string), summary }
-   ============================================================ */
-const NEWSLETTER_ARTICLES = [
-  // (empty until the RSS feed is connected)
-];
-const NEWSLETTER_LAST_SYNCED = null; // ISO date string, set by the sync job
-
-function renderNewsletter() {
-  const body = document.getElementById('newsletter-body');
-  const meta = document.getElementById('newsletter-meta');
-  if (!body) return;
-  if (!NEWSLETTER_ARTICLES.length) {
-    meta.textContent = '';
-    return;
-  }
-  meta.textContent = NEWSLETTER_LAST_SYNCED
-    ? 'Last synced ' + NEWSLETTER_LAST_SYNCED
-    : '';
-  const list = document.createElement('div');
-  list.className = 'newsletter-list';
-  NEWSLETTER_ARTICLES.forEach(function (a) {
-    const item = document.createElement('div');
-    item.className = 'newsletter-item';
-    const date = document.createElement('span');
-    date.className = 'ndate';
-    date.textContent = a.date || '';
-    const content = document.createElement('div');
-    const h3 = document.createElement('h3');
-    const link = document.createElement('a');
-    link.href = a.url;
-    link.target = '_blank';
-    link.rel = 'noopener';
-    link.textContent = a.title;
-    h3.appendChild(link);
-    const p = document.createElement('p');
-    p.textContent = a.summary || '';
-    content.appendChild(h3);
-    content.appendChild(p);
-    item.appendChild(date);
-    item.appendChild(content);
-    list.appendChild(item);
-  });
-  body.innerHTML = '';
-  body.appendChild(list);
-}
-renderNewsletter();
-
-/* ============================================================
    AI ASSISTANT (Ask about my work)
    ------------------------------------------------------------
    Uses the page-embedded "sample" capability to ask Claude,
@@ -1039,6 +1112,8 @@ const SITE_REFERENCE = [
   'CREDENTIALS: As of September 2026 Ryan has completed eight Anthropic Academy courses on Claude and agentic AI: AI Fluency: Framework & Foundations (scored 10/10), Claude 101, Introduction to Claude Cowork, Introduction to Subagents, Claude Platform 101, Claude Code 101, Claude Code in Action, and Introduction to Agent Skills. These are listed with completion dates in the Credentials section of this site.',
   '',
   'RECOGNITION: Ryan received a TrustArc Culture Award in the "Customer Obsessed" category in the first half of 2026, a company-wide recognition nominated by peers and leadership. He has also been recognized informally — a former client\'s LinkedIn recommendation praises him as quick, organized, and helpful, crediting his work with opening up new business opportunities. This is shown as a quote in the Credentials section of this site, with the source described by role rather than name.',
+  '',
+  'FIELD NOTES: The Notes section of this site carries short, first-person practitioner notes Ryan writes on building and shipping AI tools inside a customer success org — for example, on moving from ad hoc prompts to a written playbook, on why the re-engagement workflow got adopted, and on what his Anthropic Academy coursework changed about how he thinks about agentic AI. These are shorter and more informal than the Field Guide.',
   '',
   'FIELD GUIDE: Ryan wrote an 11-page free field guide called "The AI-First CSM" — on becoming the person in your company who builds the AI tools everyone else adopts, not just someone who uses AI to work faster. It covers his own case studies (the Ask Arc Prompt Library, the re-engagement workflow, the migrations), a four-part framework for finding AI leverage (onboarding, adoption, enablement, partnership), a five-step process for building and getting credit for an internal AI tool, and a five-question worksheet to start this week. It is free, no email required, downloadable from the Field Guide section of this site.',
   '',
