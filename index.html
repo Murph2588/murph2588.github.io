@@ -271,6 +271,29 @@
   .focus-item p{ color:var(--ink-soft); max-width:52ch; }
 
   /* ============================================================
+     CERTIFICATIONS
+     ============================================================ */
+  .creds{ border-top:1px solid var(--line); }
+  .creds .section-inner{ display:grid; grid-template-columns:16rem 1fr; gap:3rem; }
+  .creds h2{ font-size:2.1rem; }
+  .creds-intro{ color:var(--ink-soft); max-width:var(--measure); margin-bottom:1.8rem; }
+  .creds-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.3rem 1.6rem; }
+  .cred-item{
+    padding:1.1rem 1.3rem;
+    border:1px solid var(--line-soft);
+  }
+  .cred-item .kicker{ display:block; margin-bottom:0.5rem; }
+  .cred-item h3{ font-size:1.05rem; line-height:1.3; font-family:var(--font-body); font-weight:600; }
+  .cred-source{
+    margin-top:0.5rem;
+    font-family:var(--font-mono);
+    font-size:0.68rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  /* ============================================================
      FIELD GUIDE
      ============================================================ */
   .guide{ border-top:1px solid var(--line); background:var(--surface); }
@@ -434,12 +457,14 @@
     .about .section-inner,
     .record .section-inner,
     .focus .section-inner,
+    .creds .section-inner,
     .guide .section-inner,
     .newsletter .section-inner,
     .ask .section-inner,
     .work .section-inner,
     .contact .section-inner{ grid-template-columns:1fr; gap:1.4rem; }
     .focus-item, .record-item, .newsletter-item{ grid-template-columns:1fr; gap:0.4rem; }
+    .creds-grid{ grid-template-columns:1fr; }
     .work-cards{ grid-template-columns:1fr; }
     section{ padding:3.5rem var(--gutter); }
     .topnav{ gap:0.85rem; }
@@ -458,6 +483,7 @@
   <span class="mark">RYAN&nbsp;MURPHY</span>
   <nav class="topnav">
     <a href="#about">About</a>
+    <a href="#credentials">Credentials</a>
     <a href="#guide">Guide</a>
     <a href="#ask">Ask</a>
     <a href="#work">Work</a>
@@ -595,10 +621,64 @@
   </div>
 </section>
 
+<section class="creds" id="credentials">
+  <div class="section-inner">
+    <div class="heading-col">
+      <span class="kicker">§04 — Credentials</span>
+      <h2>Anthropic Academy</h2>
+    </div>
+    <div class="creds-body">
+      <p class="creds-intro">Practicing what's in the field guide below rather than just writing about it: I've worked through eight of Anthropic's own courses on Claude and agentic AI as of September 2026, from the fundamentals through Claude Code, subagents, and agent skills.</p>
+      <div class="creds-grid">
+        <div class="cred-item">
+          <span class="kicker">AUG 2026</span>
+          <h3>AI Fluency: Framework &amp; Foundations</h3>
+          <p class="cred-source">Anthropic Academy · Score 10/10</p>
+        </div>
+        <div class="cred-item">
+          <span class="kicker">AUG 2026</span>
+          <h3>Claude 101</h3>
+          <p class="cred-source">Anthropic Academy</p>
+        </div>
+        <div class="cred-item">
+          <span class="kicker">AUG 2026</span>
+          <h3>Introduction to Claude Cowork</h3>
+          <p class="cred-source">Anthropic Academy</p>
+        </div>
+        <div class="cred-item">
+          <span class="kicker">AUG 2026</span>
+          <h3>Introduction to Subagents</h3>
+          <p class="cred-source">Anthropic Academy</p>
+        </div>
+        <div class="cred-item">
+          <span class="kicker">SEP 2026</span>
+          <h3>Claude Platform 101</h3>
+          <p class="cred-source">Anthropic Academy</p>
+        </div>
+        <div class="cred-item">
+          <span class="kicker">SEP 2026</span>
+          <h3>Claude Code 101</h3>
+          <p class="cred-source">Anthropic Academy</p>
+        </div>
+        <div class="cred-item">
+          <span class="kicker">SEP 2026</span>
+          <h3>Claude Code in Action</h3>
+          <p class="cred-source">Anthropic Academy</p>
+        </div>
+        <div class="cred-item">
+          <span class="kicker">SEP 2026</span>
+          <h3>Introduction to Agent Skills</h3>
+          <p class="cred-source">Anthropic Academy</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="guide" id="guide">
   <div class="section-inner">
     <div class="heading-col">
-      <span class="kicker">§04 — Field guide</span>
+      <span class="kicker">§05 — Field guide</span>
       <h2>The AI-First CSM</h2>
     </div>
     <div class="guide-body">
@@ -615,7 +695,7 @@
 <section class="newsletter" id="newsletter">
   <div class="section-inner">
     <div class="heading-col">
-      <span class="kicker">§05 — Newsletter</span>
+      <span class="kicker">§06 — Newsletter</span>
       <h2>Recent posts</h2>
       <p class="newsletter-meta" id="newsletter-meta"></p>
     </div>
@@ -636,7 +716,7 @@
 <section class="ask" id="ask">
   <div class="section-inner">
     <div class="heading-col">
-      <span class="kicker">§06 — Ask</span>
+      <span class="kicker">§07 — Ask</span>
       <h2>Ask about my work</h2>
     </div>
     <div>
@@ -651,7 +731,7 @@
 <section class="work" id="work">
   <div class="section-inner">
     <div class="heading-col">
-      <span class="kicker">§07 — Work with me</span>
+      <span class="kicker">§08 — Work with me</span>
       <h2>Ways to connect</h2>
     </div>
     <div class="work-cards">
@@ -675,7 +755,7 @@
 <section class="contact" id="connect">
   <div class="section-inner">
     <div class="heading-col">
-      <span class="kicker">§08 — Connect</span>
+      <span class="kicker">§09 — Connect</span>
       <h2>Let's compare notes</h2>
     </div>
     <div class="contact-body">
@@ -856,6 +936,8 @@ const SITE_REFERENCE = [
   'TRACK RECORD: Built and shipped the Ask Arc Prompt Library company-wide (Apr 2026), now referenced in TrustArc\'s Help Center and customer webinars. Co-presents the "Privacy in Practice" webinar series (Apr-Aug 2026) on AI in privacy work. Led a cross-region data migration in about 30 minutes using AI-assisted tooling (Jan 2025). Delivered a full platform migration inside a 30-day window for a new enterprise customer, plus a separate multi-month project moving 200+ historical rights requests off a competitor\'s platform (Nov 2025). Built an AI-driven account re-engagement workflow now used team-wide and cited by leadership (Jul 2026).',
   '',
   'FOCUS AREAS: (1) Onboarding — time-to-value, not just go-live. (2) Adoption — turning early wins into renewals. (3) Enablement — building AI prompt libraries and workflows people actually use. (4) Partnership — connecting the platform to outcomes leadership cares about.',
+  '',
+  'CREDENTIALS: As of September 2026 Ryan has completed eight Anthropic Academy courses on Claude and agentic AI: AI Fluency: Framework & Foundations (scored 10/10), Claude 101, Introduction to Claude Cowork, Introduction to Subagents, Claude Platform 101, Claude Code 101, Claude Code in Action, and Introduction to Agent Skills. These are listed with completion dates in the Credentials section of this site.',
   '',
   'FIELD GUIDE: Ryan wrote an 11-page free field guide called "The AI-First CSM" — on becoming the person in your company who builds the AI tools everyone else adopts, not just someone who uses AI to work faster. It covers his own case studies (the Ask Arc Prompt Library, the re-engagement workflow, the migrations), a four-part framework for finding AI leverage (onboarding, adoption, enablement, partnership), a five-step process for building and getting credit for an internal AI tool, and a five-question worksheet to start this week. It is free, no email required, downloadable from the Field Guide section of this site.',
   '',
