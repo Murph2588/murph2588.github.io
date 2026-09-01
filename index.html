@@ -726,8 +726,17 @@ const FIELD_GUIDE_FILENAME = "the-ai-first-csm-field-guide.pdf";
     wrap.appendChild(p);
   }
 
+  function useDirectDownloadLink() {
+    // No Claude runtime on this page at all (e.g. a plain static host like
+    // GitHub Pages) — a normal data-URI download link works fine there.
+    // It's only unsafe/blocked inside the Claude artifact viewer's sandbox,
+    // which is why we try the "downloads" capability first when it exists.
+    btn.href = 'data:application/pdf;base64,' + FIELD_GUIDE_BASE64;
+    btn.setAttribute('download', FIELD_GUIDE_FILENAME);
+  }
+
   if (!window.claude || typeof window.claude.use !== 'function') {
-    fallback('Downloads only work inside a Claude-hosted view — email rmurphy@trustarc.com and I\'ll send the PDF over.');
+    useDirectDownloadLink();
     return;
   }
 
