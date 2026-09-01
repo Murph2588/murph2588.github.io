@@ -728,10 +728,13 @@ const FIELD_GUIDE_FILENAME = "the-ai-first-csm-field-guide.pdf";
 
   function useDirectDownloadLink() {
     // No Claude runtime on this page at all (e.g. a plain static host like
-    // GitHub Pages) — a normal data-URI download link works fine there.
-    // It's only unsafe/blocked inside the Claude artifact viewer's sandbox,
-    // which is why we try the "downloads" capability first when it exists.
-    btn.href = 'data:application/pdf;base64,' + FIELD_GUIDE_BASE64;
+    // GitHub Pages) — link straight to the real PDF file sitting alongside
+    // this page. A same-origin file link is honored by every browser's
+    // `download` attribute (including Safari, which has known bugs saving
+    // large data: URIs instead of just opening them). Inside the Claude
+    // artifact viewer a plain link like this is blocked by the sandbox,
+    // which is why that path uses the "downloads" capability instead.
+    btn.href = FIELD_GUIDE_FILENAME;
     btn.setAttribute('download', FIELD_GUIDE_FILENAME);
   }
 
