@@ -106,8 +106,14 @@
     letter-spacing:0.05em;
     font-weight:500;
   }
-  .topnav{ display:flex; gap:clamp(1rem,3vw,2rem); }
+  .topnav{
+    display:flex; gap:clamp(0.9rem,2.4vw,2rem);
+    overflow-x:auto; -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .topnav::-webkit-scrollbar{ display:none; }
   .topnav a{
+    flex:0 0 auto;
     font-family:var(--font-mono);
     font-size:0.72rem;
     letter-spacing:0.1em;
@@ -119,6 +125,18 @@
     transition:color .2s ease, border-color .2s ease;
   }
   .topnav a:hover, .topnav a:focus-visible{ color:var(--accent); border-color:var(--accent); }
+  .topnav a.active{ color:var(--accent); border-color:var(--accent); }
+
+  /* ============================================================
+     TAB PANELS
+     ------------------------------------------------------------
+     Every top-level content section (About, Record, Focus, etc.)
+     carries .tab-panel and is hidden by default; script.js-side
+     logic below shows exactly one at a time based on the nav click
+     or the URL hash, so each section behaves like its own page.
+     ============================================================ */
+  .tab-panel{ display:none; }
+  .tab-panel.active{ display:block; }
 
   section{ padding:5.5rem var(--gutter); }
   .section-inner{ max-width:74rem; margin:0 auto; }
@@ -252,6 +270,15 @@
   }
   .record-item h3{ font-size:1.25rem; margin-bottom:0.4rem; }
   .record-item p{ color:var(--ink-soft); max-width:56ch; }
+  .record-live-link{
+    display:inline-block;
+    margin-top:0.6rem;
+    font-size:0.85rem;
+    color:var(--accent-2);
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+  .record-live-link:hover, .record-live-link:focus-visible{ color:var(--accent); }
 
   /* ============================================================
      FOCUS
@@ -483,6 +510,8 @@
   <span class="mark">RYAN&nbsp;MURPHY</span>
   <nav class="topnav">
     <a href="#about">About</a>
+    <a href="#record">Record</a>
+    <a href="#focus">Focus</a>
     <a href="#credentials">Credentials</a>
     <a href="#guide">Guide</a>
     <a href="#ask">Ask</a>
@@ -521,7 +550,7 @@
   </div>
 </section>
 
-<section class="about" id="about">
+<section class="about tab-panel" id="about">
   <div class="section-inner">
     <div class="heading-col">
       <span class="kicker">§01 — About</span>
@@ -536,7 +565,7 @@
   </div>
 </section>
 
-<section class="record" id="record">
+<section class="record tab-panel" id="record">
   <div class="section-inner">
     <div class="heading-col">
       <span class="kicker">§02 — Record</span>
@@ -548,6 +577,7 @@
         <div>
           <h3>Ask Arc Prompt Library, company-wide</h3>
           <p>What started as my own cheat sheet is now published in TrustArc's Help Center, referenced in customer webinars, and used by Customer Success, Sales, and Marketing teams across the company.</p>
+          <a class="record-live-link" href="https://trustarchelp.zendesk.com/hc/en-us/articles/51665827947539-Ask-Arc-Prompt-Library#general" target="_blank" rel="noopener">See it live in TrustArc's Help Center ↗</a>
         </div>
       </div>
       <div class="record-item">
@@ -582,7 +612,7 @@
   </div>
 </section>
 
-<section class="focus" id="focus">
+<section class="focus tab-panel" id="focus">
   <div class="section-inner">
     <div class="heading-col">
       <span class="kicker">§03 — Focus</span>
@@ -621,7 +651,7 @@
   </div>
 </section>
 
-<section class="creds" id="credentials">
+<section class="creds tab-panel" id="credentials">
   <div class="section-inner">
     <div class="heading-col">
       <span class="kicker">§04 — Credentials</span>
@@ -675,7 +705,7 @@
   </div>
 </section>
 
-<section class="guide" id="guide">
+<section class="guide tab-panel" id="guide">
   <div class="section-inner">
     <div class="heading-col">
       <span class="kicker">§05 — Field guide</span>
@@ -713,10 +743,10 @@
   </div>
 </section>
 
-<section class="ask" id="ask">
+<section class="ask tab-panel" id="ask">
   <div class="section-inner">
     <div class="heading-col">
-      <span class="kicker">§07 — Ask</span>
+      <span class="kicker">§06 — Ask</span>
       <h2>Ask about my work</h2>
     </div>
     <div>
@@ -728,10 +758,10 @@
   </div>
 </section>
 
-<section class="work" id="work">
+<section class="work tab-panel" id="work">
   <div class="section-inner">
     <div class="heading-col">
-      <span class="kicker">§08 — Work with me</span>
+      <span class="kicker">§07 — Work with me</span>
       <h2>Ways to connect</h2>
     </div>
     <div class="work-cards">
@@ -752,10 +782,10 @@
   </div>
 </section>
 
-<section class="contact" id="connect">
+<section class="contact tab-panel" id="connect">
   <div class="section-inner">
     <div class="heading-col">
-      <span class="kicker">§09 — Connect</span>
+      <span class="kicker">§08 — Connect</span>
       <h2>Let's compare notes</h2>
     </div>
     <div class="contact-body">
@@ -781,6 +811,49 @@
 </footer>
 
 <script>
+/* ============================================================
+   TAB NAVIGATION
+   ------------------------------------------------------------
+   Each top-level section (About, Record, Focus, Credentials,
+   Guide, Ask, Work, Connect) is its own tab: only one .tab-panel
+   is shown at a time, switched by clicking a nav link. The URL
+   hash tracks the open tab, so a link like yoursite.com/#work
+   opens straight to that section, and the browser's back/forward
+   buttons move between tabs too. The Newsletter section has no
+   tab yet (it's turned off — see its own comment further down)
+   and stays out of this rotation entirely.
+   ============================================================ */
+(function () {
+  const panels = Array.prototype.slice.call(document.querySelectorAll('.tab-panel'));
+  const navLinks = Array.prototype.slice.call(document.querySelectorAll('.topnav a'));
+  const validIds = panels.map(function (p) { return p.id; });
+
+  function activate(id) {
+    if (validIds.indexOf(id) === -1) id = validIds[0];
+    panels.forEach(function (p) { p.classList.toggle('active', p.id === id); });
+    navLinks.forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+    });
+  }
+
+  navLinks.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      const id = a.getAttribute('href').slice(1);
+      if (validIds.indexOf(id) === -1) return;
+      e.preventDefault();
+      history.pushState(null, '', '#' + id);
+      activate(id);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  window.addEventListener('popstate', function () {
+    activate(location.hash.slice(1));
+  });
+
+  activate(location.hash.slice(1) || validIds[0]);
+})();
+
 /* ============================================================
    FIELD GUIDE DOWNLOAD
    ------------------------------------------------------------
