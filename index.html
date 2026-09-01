@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ryan Murphy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -310,6 +310,35 @@
     text-transform:uppercase;
     color:var(--ink-soft);
   }
+  .creds-subhead{
+    margin-top:2.2rem;
+    margin-bottom:1rem;
+    font-family:var(--font-display);
+    font-size:1.4rem;
+    font-weight:400;
+    color:var(--ink);
+  }
+  .cred-award{
+    padding:1.1rem 1.3rem;
+    border:1px solid var(--accent);
+    margin-bottom:1.4rem;
+    max-width:28rem;
+  }
+  .cred-award h4{ font-family:var(--font-body); font-weight:600; font-size:1.05rem; margin:0.4rem 0 0.3rem; }
+  .cred-award p{ color:var(--ink-soft); font-size:0.9rem; }
+  .creds-quotes{ display:flex; flex-direction:column; gap:1.3rem; }
+  .creds-quote{ margin:0; padding-left:1.2rem; border-left:2px solid var(--accent-2); }
+  .creds-quote p{ font-family:var(--font-display); font-style:italic; font-size:1.15rem; line-height:1.4; color:var(--ink); }
+  .creds-quote cite{
+    display:block;
+    margin-top:0.5rem;
+    font-style:normal;
+    font-family:var(--font-mono);
+    font-size:0.7rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
 
   /* ============================================================
      FIELD GUIDE
@@ -518,7 +547,7 @@
       <h1>Ryan Murphy</h1>
       <p class="role">Ten years in customer success, eight before that in sales — spent making <strong>privacy &amp; compliance software</strong>, and increasingly the AI layered on top of it, make sense to the people who actually have to use it.</p>
       <div class="hero-actions">
-        <a class="btn primary" href="mailto:rmurphy@trustarc.com">Email me</a>
+        <a class="btn primary" href="mailto:ryanseanmurphy@yahoo.com">Email me</a>
         <a class="btn" href="https://www.linkedin.com/in/ryan-murphy-52191629/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
     </div>
@@ -673,6 +702,27 @@
           <p class="cred-source">Anthropic Academy</p>
         </div>
       </div>
+
+      <h3 class="creds-subhead">Recognition</h3>
+      <div class="cred-award">
+        <span class="kicker">1H 2026</span>
+        <h4>TrustArc Culture Award</h4>
+        <p>Company-wide recognition award, nominated by peers and leadership.</p>
+      </div>
+      <div class="creds-quotes">
+        <blockquote class="creds-quote">
+          <p>"Ryan is incredibly dedicated and hard-working. He's self-aware of his own limitations, which means he knows how to loop in other people when it's warranted."</p>
+          <cite>— a colleague, LinkedIn recommendation</cite>
+        </blockquote>
+        <blockquote class="creds-quote">
+          <p>"Ryan Murphy's brainchild — the Prompt Library — FTW."</p>
+          <cite>— a teammate, after a customer praised the tool live on a company webinar</cite>
+        </blockquote>
+        <blockquote class="creds-quote">
+          <p>"Nicely done at the all-hands."</p>
+          <cite>— his manager, after a company-wide presentation</cite>
+        </blockquote>
+      </div>
     </div>
   </div>
 </section>
@@ -759,9 +809,9 @@
       <p>If you're a CSM, a CS leader, or anyone trying to get real enterprise adoption out of AI — not just a slide about it — I'd like to hear what's working for you. I'm especially glad to trade notes with people building their own prompt libraries, running AI-assisted migrations, or making the case for AI enablement to leadership.</p>
       <p style="margin-top:1rem;">Best way to reach me is email — I'm also on LinkedIn if you'd rather connect there first.</p>
       <div class="contact-links">
-        <a class="contact-link" href="mailto:rmurphy@trustarc.com">
+        <a class="contact-link" href="mailto:ryanseanmurphy@yahoo.com">
           <span class="clabel">Email</span>
-          <span class="cvalue">rmurphy@trustarc.com</span>
+          <span class="cvalue">ryanseanmurphy@yahoo.com</span>
         </a>
         <a class="contact-link" href="https://www.linkedin.com/in/ryan-murphy-52191629/" target="_blank" rel="noopener">
           <span class="clabel">LinkedIn</span>
@@ -789,10 +839,27 @@
    buttons move between tabs too. The Newsletter section has no
    tab yet (it's turned off — see its own comment further down)
    and stays out of this rotation entirely.
+
+   The Ask tab is a special case: it only works inside a Claude-
+   hosted view (it needs the "sample" capability, which doesn't
+   exist on a plain static host). So on a host with no window.claude
+   — e.g. the GitHub Pages copy of this site — its nav link is
+   removed and it's dropped from the tab rotation entirely, rather
+   than showing visitors a tab that can't do anything. It stays
+   fully visible and working wherever this page is viewed inside
+   Claude (the published artifact).
    ============================================================ */
 (function () {
-  const panels = Array.prototype.slice.call(document.querySelectorAll('.tab-panel'));
-  const navLinks = Array.prototype.slice.call(document.querySelectorAll('.topnav a'));
+  const hasClaudeRuntime = !!(window.claude && typeof window.claude.use === 'function');
+  if (!hasClaudeRuntime) {
+    const askLink = document.querySelector('.topnav a[href="#ask"]');
+    if (askLink) askLink.remove();
+  }
+
+  const allPanels = Array.prototype.slice.call(document.querySelectorAll('.tab-panel'));
+  const allNavLinks = Array.prototype.slice.call(document.querySelectorAll('.topnav a'));
+  const panels = hasClaudeRuntime ? allPanels : allPanels.filter(function (p) { return p.id !== 'ask'; });
+  const navLinks = hasClaudeRuntime ? allNavLinks : allNavLinks.filter(function (a) { return a.getAttribute('href') !== '#ask'; });
   const validIds = panels.map(function (p) { return p.id; });
 
   function activate(id) {
@@ -865,7 +932,7 @@ const FIELD_GUIDE_FILENAME = "the-ai-first-csm-field-guide.pdf";
 
   window.claude.use('downloads').then(function (downloads) {
     if (!downloads) {
-      fallback('Downloads aren\'t available in this view — email rmurphy@trustarc.com and I\'ll send the PDF over.');
+      fallback('Downloads aren\'t available in this view — email ryanseanmurphy@yahoo.com and I\'ll send the PDF over.');
       return;
     }
     btn.addEventListener('click', function (e) {
@@ -882,7 +949,7 @@ const FIELD_GUIDE_FILENAME = "the-ai-first-csm-field-guide.pdf";
       } catch (err) {
         btn.textContent = original;
         delete btn.dataset.busy;
-        fallback('Something went wrong preparing the file — email rmurphy@trustarc.com and I\'ll send it over.');
+        fallback('Something went wrong preparing the file — email ryanseanmurphy@yahoo.com and I\'ll send it over.');
         return;
       }
       const blob = new Blob([bytes], { type: 'application/pdf' });
@@ -894,11 +961,11 @@ const FIELD_GUIDE_FILENAME = "the-ai-first-csm-field-guide.pdf";
         delete btn.dataset.busy;
         if (e.code === 'declined') return;
         if (e.code === 'rate_limited') { fallback('A save prompt is already open — try the button again in a moment.'); return; }
-        fallback('Couldn\'t start the download — email rmurphy@trustarc.com and I\'ll send the PDF over.');
+        fallback('Couldn\'t start the download — email ryanseanmurphy@yahoo.com and I\'ll send the PDF over.');
       });
     });
   }).catch(function () {
-    fallback('Downloads aren\'t available in this view — email rmurphy@trustarc.com and I\'ll send the PDF over.');
+    fallback('Downloads aren\'t available in this view — email ryanseanmurphy@yahoo.com and I\'ll send the PDF over.');
   });
 })();
 
@@ -983,7 +1050,7 @@ const SITE_REFERENCE = [
   '',
   'WORK WITH RYAN: A free intro call can be booked directly via the calendar link on this site (Work with me section) — this is live today. A paid 1:1 consultation is planned but not yet available for booking (marked "Coming soon" on the site) — if asked about it, say it is coming soon and suggest the free intro call or email in the meantime.',
   '',
-  'CONTACT: Email rmurphy@trustarc.com, or LinkedIn at linkedin.com/in/ryan-murphy-52191629.',
+  'CONTACT: Email ryanseanmurphy@yahoo.com, or LinkedIn at linkedin.com/in/ryan-murphy-52191629.',
 ].join('\n');
 
 (function () {
@@ -1086,6 +1153,5 @@ const SITE_REFERENCE = [
   });
 })();
 </script>
-
 </body>
 </html>
