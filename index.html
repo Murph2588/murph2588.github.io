@@ -255,19 +255,10 @@
   .record h2{ font-size:2.1rem; }
   .record-list{ display:flex; flex-direction:column; }
   .record-item{
-    display:grid; grid-template-columns:9rem 1fr; gap:1.5rem;
     padding:1.6rem 0;
     border-top:1px solid var(--line-soft);
   }
   .record-item:last-child{ border-bottom:1px solid var(--line-soft); }
-  .record-item .rdate{
-    padding-top:0.2rem;
-    font-family:var(--font-mono);
-    font-size:0.72rem;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    color:var(--accent);
-  }
   .record-item h3{ font-size:1.25rem; margin-bottom:0.4rem; }
   .record-item p{ color:var(--ink-soft); max-width:56ch; }
   .record-live-link{
@@ -490,7 +481,7 @@
     .ask .section-inner,
     .work .section-inner,
     .contact .section-inner{ grid-template-columns:1fr; gap:1.4rem; }
-    .focus-item, .record-item, .newsletter-item{ grid-template-columns:1fr; gap:0.4rem; }
+    .focus-item, .newsletter-item{ grid-template-columns:1fr; gap:0.4rem; }
     .creds-grid{ grid-template-columns:1fr; }
     .work-cards{ grid-template-columns:1fr; }
     section{ padding:3.5rem var(--gutter); }
@@ -553,7 +544,6 @@
 <section class="about tab-panel" id="about">
   <div class="section-inner">
     <div class="heading-col">
-      <span class="kicker">§01 — About</span>
       <h2>What I do</h2>
     </div>
     <div class="about-copy">
@@ -568,45 +558,29 @@
 <section class="record tab-panel" id="record">
   <div class="section-inner">
     <div class="heading-col">
-      <span class="kicker">§02 — Record</span>
       <h2>A few things I've shipped</h2>
     </div>
     <div class="record-list">
       <div class="record-item">
-        <span class="rdate">Apr 2026</span>
-        <div>
-          <h3>Ask Arc Prompt Library, company-wide</h3>
-          <p>What started as my own cheat sheet is now published in TrustArc's Help Center, referenced in customer webinars, and used by Customer Success, Sales, and Marketing teams across the company.</p>
-          <a class="record-live-link" href="https://trustarchelp.zendesk.com/hc/en-us/articles/51665827947539-Ask-Arc-Prompt-Library#general" target="_blank" rel="noopener">See it live in TrustArc's Help Center ↗</a>
-        </div>
+        <h3>Ask Arc Prompt Library, company-wide</h3>
+        <p>What started as my own cheat sheet is now published in TrustArc's Help Center, referenced in customer webinars, and used by Customer Success, Sales, and Marketing teams across the company.</p>
+        <a class="record-live-link" href="https://trustarchelp.zendesk.com/hc/en-us/articles/51665827947539-Ask-Arc-Prompt-Library#general" target="_blank" rel="noopener">See it live in TrustArc's Help Center ↗</a>
       </div>
       <div class="record-item">
-        <span class="rdate">Apr–Aug 2026</span>
-        <div>
-          <h3>Co-presenter, "Privacy in Practice"</h3>
-          <p>A recurring customer webinar series on getting real value from AI in privacy work — annual-lookback reporting, GDPR Article 30 gap analysis, AI and system-risk assessment.</p>
-        </div>
+        <h3>Co-presenter, "Privacy in Practice"</h3>
+        <p>A recurring customer webinar series on getting real value from AI in privacy work — annual-lookback reporting, GDPR Article 30 gap analysis, AI and system-risk assessment.</p>
       </div>
       <div class="record-item">
-        <span class="rdate">Jan 2025</span>
-        <div>
-          <h3>Cross-region migration in ~30 minutes</h3>
-          <p>Used AI-assisted tooling to move a customer's records between regions in a fraction of the usual time, with data quality that came in ahead of expectations.</p>
-        </div>
+        <h3>Cross-region migration in ~30 minutes</h3>
+        <p>Used AI-assisted tooling to move a customer's records between regions in a fraction of the usual time, with data quality that came in ahead of expectations.</p>
       </div>
       <div class="record-item">
-        <span class="rdate">Nov 2025</span>
-        <div>
-          <h3>Full platform migration inside 30 days</h3>
-          <p>Stood up a new enterprise customer end-to-end on a 30-day timeline, on top of a separate multi-month project moving 200+ historical requests off a competitor's platform.</p>
-        </div>
+        <h3>Full platform migration inside 30 days</h3>
+        <p>Stood up a new enterprise customer end-to-end on a 30-day timeline, on top of a separate multi-month project moving 200+ historical requests off a competitor's platform.</p>
       </div>
       <div class="record-item">
-        <span class="rdate">Jul 2026</span>
-        <div>
-          <h3>Built an AI-driven re-engagement workflow</h3>
-          <p>A Salesforce-connected skill that flags accounts gone quiet and drafts the outreach — now used team-wide and cited by leadership as an example of AI's impact on the CS org.</p>
-        </div>
+        <h3>Built an AI-driven re-engagement workflow</h3>
+        <p>A Salesforce-connected skill that flags accounts gone quiet and drafts the outreach — now used team-wide and cited by leadership as an example of AI's impact on the CS org.</p>
       </div>
     </div>
   </div>
@@ -615,7 +589,6 @@
 <section class="focus tab-panel" id="focus">
   <div class="section-inner">
     <div class="heading-col">
-      <span class="kicker">§03 — Focus</span>
       <h2>Where I spend my time</h2>
     </div>
     <div class="focus-list">
@@ -654,7 +627,6 @@
 <section class="creds tab-panel" id="credentials">
   <div class="section-inner">
     <div class="heading-col">
-      <span class="kicker">§04 — Credentials</span>
       <h2>Anthropic Academy</h2>
     </div>
     <div class="creds-body">
@@ -708,7 +680,6 @@
 <section class="guide tab-panel" id="guide">
   <div class="section-inner">
     <div class="heading-col">
-      <span class="kicker">§05 — Field guide</span>
       <h2>The AI-First CSM</h2>
     </div>
     <div class="guide-body">
@@ -725,7 +696,6 @@
 <section class="newsletter" id="newsletter" hidden>
   <div class="section-inner">
     <div class="heading-col">
-      <span class="kicker">§06 — Newsletter</span>
       <h2>Recent posts</h2>
       <p class="newsletter-meta" id="newsletter-meta"></p>
     </div>
@@ -746,7 +716,6 @@
 <section class="ask tab-panel" id="ask">
   <div class="section-inner">
     <div class="heading-col">
-      <span class="kicker">§06 — Ask</span>
       <h2>Ask about my work</h2>
     </div>
     <div>
@@ -761,7 +730,6 @@
 <section class="work tab-panel" id="work">
   <div class="section-inner">
     <div class="heading-col">
-      <span class="kicker">§07 — Work with me</span>
       <h2>Ways to connect</h2>
     </div>
     <div class="work-cards">
@@ -785,7 +753,6 @@
 <section class="contact tab-panel" id="connect">
   <div class="section-inner">
     <div class="heading-col">
-      <span class="kicker">§08 — Connect</span>
       <h2>Let's compare notes</h2>
     </div>
     <div class="contact-body">
@@ -1006,7 +973,7 @@ const SITE_REFERENCE = [
   '',
   'ABOUT: Ryan leads customer success and platform implementation at TrustArc. He owns a book of 50+ enterprise accounts, keeping the large majority in healthy status while expanding most into 3+ product lines. He built TrustArc\'s "Ask Arc Prompt Library," an eleven-section AI prompt guide now used company-wide, and co-hosts the "Privacy in Practice" customer webinar series. He is currently deepening his own hands-on fluency with agentic AI tools like Claude Code and multi-agent workflows.',
   '',
-  'TRACK RECORD: Built and shipped the Ask Arc Prompt Library company-wide (Apr 2026), now referenced in TrustArc\'s Help Center and customer webinars. Co-presents the "Privacy in Practice" webinar series (Apr-Aug 2026) on AI in privacy work. Led a cross-region data migration in about 30 minutes using AI-assisted tooling (Jan 2025). Delivered a full platform migration inside a 30-day window for a new enterprise customer, plus a separate multi-month project moving 200+ historical rights requests off a competitor\'s platform (Nov 2025). Built an AI-driven account re-engagement workflow now used team-wide and cited by leadership (Jul 2026).',
+  'TRACK RECORD: Built and shipped the Ask Arc Prompt Library company-wide, now referenced in TrustArc\'s Help Center and customer webinars. Co-presents the "Privacy in Practice" webinar series on AI in privacy work. Led a cross-region data migration in about 30 minutes using AI-assisted tooling. Delivered a full platform migration inside a 30-day window for a new enterprise customer, plus a separate multi-month project moving 200+ historical rights requests off a competitor\'s platform. Built an AI-driven account re-engagement workflow now used team-wide and cited by leadership.',
   '',
   'FOCUS AREAS: (1) Onboarding — time-to-value, not just go-live. (2) Adoption — turning early wins into renewals. (3) Enablement — building AI prompt libraries and workflows people actually use. (4) Partnership — connecting the platform to outcomes leadership cares about.',
   '',
