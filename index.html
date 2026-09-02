@@ -1,9 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ryan Murphy</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ryan Murphy</title>
 <meta name="description" content="Ryan Murphy helps professionals and teams organize, grow, and develop through AI — a customer success leader who builds the AI tools his own team runs on.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ryan Murphy — An AI Practice for Customer Success Teams">
@@ -271,6 +266,17 @@
   .about h2{ font-size:2.1rem; }
   .about-copy{ display:flex; flex-direction:column; gap:1.3rem; max-width:var(--measure); font-size:1.05rem; color:var(--ink-soft); }
   .about-copy strong{ color:var(--ink); font-weight:600; }
+  .about-framework{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1.2rem;
+    padding:1.3rem 0;
+    border-top:1px solid var(--line-soft);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .framework-item{ display:flex; flex-direction:column; gap:0.4rem; }
+  .framework-item .kicker{ color:var(--accent); }
+  .framework-item p{ font-family:var(--font-display); font-size:1.15rem; color:var(--ink); line-height:1.3; }
   .pull{
     margin-top:0.4rem;
     padding-left:1.2rem;
@@ -547,6 +553,7 @@
     .focus-item, .notes-item{ grid-template-columns:1fr; gap:0.4rem; }
     .creds-grid{ grid-template-columns:1fr; }
     .record-case{ grid-template-columns:1fr; gap:0.8rem; }
+    .about-framework{ grid-template-columns:1fr 1fr; }
     .work-cards{ grid-template-columns:1fr; }
     section{ padding:3.5rem var(--gutter); }
     .topnav{ gap:0.85rem; }
@@ -559,9 +566,7 @@
   }
 </style>
 
-</head>
-<body>
-<header class="topbar">
+</head><body><header class="topbar">
   <span class="mark">RYAN&nbsp;MURPHY</span>
   <nav class="topnav">
     <a href="#about">About</a>
@@ -631,6 +636,13 @@
     </div>
     <div class="about-copy">
       <p>I believe the people closest to the customer are usually best positioned to make AI adoption actually stick — not a separate AI team, not IT, the people who already know where the friction is. That's the practice this site is about: find where AI removes real friction, build it, and make sure the people around you can run it without you.</p>
+      <div class="about-framework">
+        <div class="framework-item"><span class="kicker">01</span><p>Read before you act</p></div>
+        <div class="framework-item"><span class="kicker">02</span><p>Restart what's stalled</p></div>
+        <div class="framework-item"><span class="kicker">03</span><p>Template what you'd rewrite</p></div>
+        <div class="framework-item"><span class="kicker">04</span><p>Schedule what you'd redo by hand</p></div>
+      </div>
+      <p>Four moves account for almost everything I've built this year. None of them are customer-success-specific — the systems change, but the moves are the same whether you're pointed at accounts, a pipeline, or a product backlog.</p>
       <p>Right now that means leading customer success and platform implementation at TrustArc, where I own a book of <strong>50+ enterprise accounts</strong> and ask one question constantly: does this make someone's job easier, or did we just add another login? It's also meant building the systems my own team runs on — the Record tab has the specifics.</p>
       <p class="pull">Ship the capability, and most people find their own way eventually. Ship the know-how alongside it, and adoption stops being a project.</p>
       <p>I try to take my own advice here: this year I've been going deep on agentic AI myself — Claude Code, multi-agent workflows, actually building with the tools I tell people to adopt — because it's hard to coach someone through a shift you haven't gone through yourself. The Notes tab is where I write that part down as it happens.</p>
@@ -871,15 +883,36 @@
       <div class="notes-item">
         <span class="ndate">Aug 2026</span>
         <div>
-          <h3>The best AI tool is the one your team already trusts</h3>
-          <p>Our re-engagement workflow didn't get adopted because it was clever — it got adopted because it slotted into a habit people already had. The lesson: build the AI into the workflow, not a new workflow around the AI.</p>
+          <h3>Read before you talk to it</h3>
+          <p>Before any conversation that actually matters, I stopped walking in on memory and gut feel. Now AI pulls together what's scattered across the systems I use into one short brief first. The part that matters most isn't the summary — it's telling it to flag when two sources disagree instead of quietly picking the more comfortable answer. That's caught more than one situation where the official status and the real status weren't the same thing.</p>
         </div>
       </div>
       <div class="notes-item">
         <span class="ndate">Aug 2026</span>
         <div>
+          <h3>The best AI tool is the one your team already trusts</h3>
+          <p>Our re-engagement workflow didn't get adopted because it was clever — it got adopted because it slotted into a habit people already had. The lesson: build the AI into the workflow, not a new workflow around the AI.</p>
+        </div>
+      </div>
+      <div class="notes-item">
+        <span class="ndate">Jul 2026</span>
+        <div>
+          <h3>Restart what's gone quiet before you guess why</h3>
+          <p>When a relationship goes quiet, the instinct is to guess why and write an apology email. A better pattern: find what's actually gone quiet — cross-checked against real correspondence, not just what's logged — build something genuinely useful to lead with, and draft (never send) the outreach yourself. The best save I've had this way didn't come from guessing the reason correctly. It came from asking directly and getting a straight answer back.</p>
+        </div>
+      </div>
+      <div class="notes-item">
+        <span class="ndate">Jul 2026</span>
+        <div>
           <h3>What eight Anthropic courses taught me that customer calls didn't</h3>
           <p>Working through Anthropic Academy's courses back-to-back this year, the biggest shift wasn't technical — it was realizing that "agentic" work means designing a process someone else can run, not just getting a good answer yourself once.</p>
+        </div>
+      </div>
+      <div class="notes-item">
+        <span class="ndate">Jun 2026</span>
+        <div>
+          <h3>One thread, not ten</h3>
+          <p>None of my other habits with AI hold up if every conversation starts from zero. The fix wasn't a smarter prompt — it was running a real body of work through one continuing thread instead of a new chat every time something came up, so each step builds on the last instead of re-explaining the goal. Point that same habit at status instead of a task, and it turns into something that just checks in on what's decided or still open whenever I ask.</p>
         </div>
       </div>
     </div>
@@ -1103,7 +1136,7 @@ const FIELD_GUIDE_FILENAME = "the-ai-first-csm-field-guide.pdf";
 const SITE_REFERENCE = [
   'You are answering questions on Ryan Murphy\'s personal website. Ryan runs a personal practice helping professionals and teams organize, grow, and get more done with AI, grounded in nearly two decades in enterprise customer success — day to day, that means leading customer success and platform implementation at TrustArc (privacy/compliance SaaS). Answer in the THIRD PERSON, as a helpful guide to his work — never impersonate him as "I". Base every answer ONLY on the reference notes below; if something is not covered, say the site does not go into that and point the visitor to the Connect or Work-with-me sections instead of guessing. Keep answers under about 120 words, warm and direct, no bullet points.',
   '',
-  'ABOUT: Ryan believes the people closest to the customer are usually best positioned to make AI adoption actually stick, not a separate AI team or IT — so his practice is finding where AI removes real friction, building it, and teaching the people around him to run it without him. Day to day, that means leading customer success and platform implementation at TrustArc, where he owns a book of 50+ enterprise accounts, keeping the large majority in healthy status while expanding most into 3+ product lines. He built TrustArc\'s "Ask Arc Prompt Library," an eleven-section AI prompt guide now used company-wide, and co-hosts the "Privacy in Practice" customer webinar series. He is currently deepening his own hands-on fluency with agentic AI tools like Claude Code and multi-agent workflows, and writes about it in the Notes section.',
+  'ABOUT: Ryan believes the people closest to the customer are usually best positioned to make AI adoption actually stick, not a separate AI team or IT — so his practice is finding where AI removes real friction, building it, and teaching the people around him to run it without him. He distills almost everything he builds down to four repeatable moves, which are not customer-success-specific: (1) Read before you act — pull scattered context into one brief before a conversation that matters, and flag disagreements between sources rather than picking the comfortable answer. (2) Restart what\'s stalled — find what\'s actually gone quiet, bring something useful to the table, and draft (never auto-send) the outreach yourself. (3) Template what you\'d rewrite — turn a recurring judgment call into something repeatable instead of starting from scratch each time. (4) Schedule what you\'d redo by hand — put a recurring check on autopilot instead of remembering to do it. Day to day, that means leading customer success and platform implementation at TrustArc, where he owns a book of 50+ enterprise accounts, keeping the large majority in healthy status while expanding most into 3+ product lines. He built TrustArc\'s "Ask Arc Prompt Library," an eleven-section AI prompt guide now used company-wide, and co-hosts the "Privacy in Practice" customer webinar series. He is currently deepening his own hands-on fluency with agentic AI tools like Claude Code and multi-agent workflows, and writes about it in the Notes section.',
   '',
   'TRACK RECORD: Built and shipped the Ask Arc Prompt Library company-wide, now referenced in TrustArc\'s Help Center and customer webinars. Co-presents the "Privacy in Practice" webinar series on AI in privacy work. Led a cross-region data migration in about 30 minutes using AI-assisted tooling. Delivered a full platform migration inside a 30-day window for a new enterprise customer, plus a separate multi-month project moving 200+ historical rights requests off a competitor\'s platform. Built an AI-driven account re-engagement workflow now used team-wide and cited by leadership.',
   '',
@@ -1113,7 +1146,7 @@ const SITE_REFERENCE = [
   '',
   'RECOGNITION: Ryan received a TrustArc Culture Award in the "Customer Obsessed" category in the first half of 2026, a company-wide recognition nominated by peers and leadership. He has also been recognized informally — a former client\'s LinkedIn recommendation praises him as quick, organized, and helpful, crediting his work with opening up new business opportunities. This is shown as a quote in the Credentials section of this site, with the source described by role rather than name.',
   '',
-  'FIELD NOTES: The Notes section of this site carries short, first-person practitioner notes Ryan writes on building and shipping AI tools inside a customer success org — for example, on moving from ad hoc prompts to a written playbook, on why the re-engagement workflow got adopted, and on what his Anthropic Academy coursework changed about how he thinks about agentic AI. These are shorter and more informal than the Field Guide.',
+  'FIELD NOTES: The Notes section of this site carries short, first-person practitioner notes Ryan writes on building and shipping AI tools inside a customer success org — for example, on moving from ad hoc prompts to a written playbook, on reading a brief before a conversation that matters instead of walking in on memory alone, on why the re-engagement workflow got adopted, on restarting a relationship that\'s gone quiet without guessing at the reason, on what his Anthropic Academy coursework changed about how he thinks about agentic AI, and on why running one continuing thread beats starting a new chat for every task. These are shorter and more informal than the Field Guide.',
   '',
   'FIELD GUIDE: Ryan wrote an 11-page free field guide called "The AI-First CSM" — on becoming the person in your company who builds the AI tools everyone else adopts, not just someone who uses AI to work faster. It covers his own case studies (the Ask Arc Prompt Library, the re-engagement workflow, the migrations), a four-part framework for finding AI leverage (onboarding, adoption, enablement, partnership), a five-step process for building and getting credit for an internal AI tool, and a five-question worksheet to start this week. It is free, no email required, downloadable from the Field Guide section of this site.',
   '',
@@ -1222,5 +1255,4 @@ const SITE_REFERENCE = [
   });
 })();
 </script>
-</body>
-</html>
+</body></html>
