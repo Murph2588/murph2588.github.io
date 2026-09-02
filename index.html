@@ -12,6 +12,33 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="canonical" href="https://murph2588.github.io/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ryan Murphy",
+  "url": "https://murph2588.github.io/",
+  "image": "https://murph2588.github.io/og-image.png",
+  "jobTitle": "Customer Success & Platform Implementation Leader",
+  "description": "Ryan Murphy helps professionals and teams organize, grow, and get more done with AI — a customer success leader who builds the AI tools his own team runs on.",
+  "sameAs": [
+    "https://www.linkedin.com/in/ryan-murphy-52191629/"
+  ],
+  "knowsAbout": [
+    "Customer Success",
+    "AI Adoption",
+    "Agentic AI",
+    "Enterprise Onboarding",
+    "AI Enablement",
+    "Claude Code"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "TrustArc"
+  }
+}
+</script>
 <style>
   /* ============================================================
      TOKENS — edit these six colors to re-skin the whole page.
@@ -488,7 +515,15 @@
   .work{ border-top:1px solid var(--line); }
   .work .section-inner{ display:grid; grid-template-columns:16rem 1fr; gap:3rem; }
   .work h2{ font-size:2.1rem; }
+  .work-intro{ margin-top:0.6rem; color:var(--ink-soft); font-size:0.92rem; }
+  .work-groups{ display:flex; flex-direction:column; gap:2.4rem; max-width:56rem; }
+  .wgroup-label{
+    display:block;
+    font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--accent-2); margin-bottom:0.9rem;
+  }
   .work-cards{ display:grid; grid-template-columns:repeat(2, 1fr); gap:1.4rem; max-width:44rem; }
+  .work-cards-3{ grid-template-columns:repeat(3, 1fr); max-width:none; }
   .work-card{
     border:1px solid var(--line);
     padding:1.5rem;
@@ -502,6 +537,12 @@
     opacity:0.5; pointer-events:none; border-style:dashed;
   }
   .work-card .wsoon{ font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft); }
+  .speaking-intro{ color:var(--ink-soft); font-size:0.92rem; max-width:40rem; margin-bottom:1.1rem; }
+  .speaking-list{ display:flex; flex-direction:column; gap:1.1rem; max-width:44rem; margin-bottom:1.3rem; }
+  .speaking-list li{ display:flex; flex-direction:column; gap:0.3rem; padding-bottom:1.1rem; border-bottom:1px solid var(--line-soft); }
+  .speaking-list li:last-child{ border-bottom:none; padding-bottom:0; }
+  .speaking-list .stitle{ font-family:var(--font-display); font-size:1.1rem; color:var(--ink); }
+  .speaking-list .sdesc{ color:var(--ink-soft); font-size:0.92rem; }
 
   /* ============================================================
      CONTACT
@@ -936,21 +977,72 @@
 <section class="work tab-panel" id="work">
   <div class="section-inner">
     <div class="heading-col">
-      <h2>Ways to connect</h2>
+      <h2>Ways to work together</h2>
+      <p class="work-intro">From a quick conversation to an ongoing advisory relationship — pick the level that fits.</p>
     </div>
-    <div class="work-cards">
-      <div class="work-card">
-        <span class="wkicker">Free</span>
-        <h3>Intro call</h3>
-        <p>A short, no-pitch conversation — good for comparing notes or seeing if a longer engagement makes sense.</p>
-        <a class="btn primary" href="https://calendar.app.google/Jr5pJv3rdNerhjbHA" target="_blank" rel="noopener">Book time ↗</a>
+    <div class="work-groups">
+      <div class="work-group">
+        <span class="wgroup-label">Start here</span>
+        <div class="work-cards">
+          <div class="work-card">
+            <span class="wkicker">Free</span>
+            <h3>Intro call</h3>
+            <p>A short, no-pitch conversation — good for comparing notes or seeing if a longer engagement makes sense.</p>
+            <a class="btn primary" href="https://calendar.app.google/Jr5pJv3rdNerhjbHA" target="_blank" rel="noopener">Book time ↗</a>
+          </div>
+          <div class="work-card">
+            <span class="wkicker">Paid</span>
+            <h3>1:1 consultation</h3>
+            <p>Deeper, dedicated time on a specific problem — AI enablement, onboarding design, or account strategy.</p>
+            <a class="btn" href="#" aria-disabled="true" tabindex="-1">Book a consultation</a>
+            <span class="wsoon">Coming soon</span>
+          </div>
+        </div>
       </div>
-      <div class="work-card">
-        <span class="wkicker">Paid</span>
-        <h3>1:1 consultation</h3>
-        <p>Deeper, dedicated time on a specific problem — AI enablement, onboarding design, or account strategy.</p>
-        <a class="btn" href="#" aria-disabled="true" tabindex="-1">Book a consultation</a>
-        <span class="wsoon">Coming soon</span>
+      <div class="work-group">
+        <span class="wgroup-label">Named engagements</span>
+        <div class="work-cards work-cards-3">
+          <div class="work-card">
+            <span class="wkicker">Diagnostic</span>
+            <h3>AI Adoption Audit</h3>
+            <p>A focused look at where your CS team is losing time to manual work — account intelligence, re-engagement, onboarding, reporting — and a short, prioritized list of what's actually worth building first.</p>
+            <a class="btn" href="mailto:ryanseanmurphy@yahoo.com?subject=AI%20Adoption%20Audit%20inquiry">Inquire</a>
+            <span class="wsoon">Pricing on request</span>
+          </div>
+          <div class="work-card">
+            <span class="wkicker">Workshop</span>
+            <h3>Finding Your Team's First AI Win</h3>
+            <p>A working session, not a lecture. Your team leaves with one AI opportunity scoped, owned, and small enough to ship in weeks — not a slide deck about someday.</p>
+            <a class="btn" href="mailto:ryanseanmurphy@yahoo.com?subject=Workshop%20inquiry%3A%20Finding%20Your%20Team%27s%20First%20AI%20Win">Inquire</a>
+            <span class="wsoon">Pricing on request</span>
+          </div>
+          <div class="work-card">
+            <span class="wkicker">Retainer</span>
+            <h3>Advisory Retainer</h3>
+            <p>Ongoing monthly time for a CS leader building AI into how their team works — a sounding board for what to build next, what to kill, and how to get credit for it internally.</p>
+            <a class="btn" href="mailto:ryanseanmurphy@yahoo.com?subject=Advisory%20Retainer%20inquiry">Inquire</a>
+            <span class="wsoon">Pricing on request</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-group">
+        <span class="wgroup-label">Speaking</span>
+        <p class="speaking-intro">Happy to give any of these at a CS meetup, virtual event, or internal team session.</p>
+        <ul class="speaking-list">
+          <li>
+            <span class="stitle">The Four Moves Behind Every AI Tool I've Shipped This Year</span>
+            <span class="sdesc">A practitioner's breakdown of the four repeatable patterns behind a year of AI builds inside a customer success org — and why none of them are CS-specific.</span>
+          </li>
+          <li>
+            <span class="stitle">Finding Your Team's First AI Win</span>
+            <span class="sdesc">The talk version of the workshop: how to spot where AI actually removes friction on a CS team, and how to avoid building something nobody asked for.</span>
+          </li>
+          <li>
+            <span class="stitle">Why I Stopped Writing Prompts and Started Writing a Playbook</span>
+            <span class="sdesc">What changed when I stopped treating good prompts as a personal cheat sheet and started writing them for someone who'd never seen the tool before.</span>
+          </li>
+        </ul>
+        <a class="btn" href="mailto:ryanseanmurphy@yahoo.com?subject=Speaking%20inquiry">Invite me to speak</a>
       </div>
     </div>
   </div>
@@ -1150,7 +1242,7 @@ const SITE_REFERENCE = [
   '',
   'FIELD GUIDE: Ryan wrote an 11-page free field guide called "The AI-First CSM" — on becoming the person in your company who builds the AI tools everyone else adopts, not just someone who uses AI to work faster. It covers his own case studies (the Ask Arc Prompt Library, the re-engagement workflow, the migrations), a four-part framework for finding AI leverage (onboarding, adoption, enablement, partnership), a five-step process for building and getting credit for an internal AI tool, and a five-question worksheet to start this week. It is free, no email required, downloadable from the Field Guide section of this site.',
   '',
-  'WORK WITH RYAN: A free intro call can be booked directly via the calendar link on this site (Work with me section) — this is live today. A paid 1:1 consultation is planned but not yet available for booking (marked "Coming soon" on the site) — if asked about it, say it is coming soon and suggest the free intro call or email in the meantime.',
+  'WORK WITH RYAN: A free intro call can be booked directly via the calendar link on this site (Work tab) — this is live today. A paid 1:1 consultation is planned but not yet available for booking (marked "Coming soon"). Ryan also offers three named engagements, priced on request via email inquiry: an AI Adoption Audit (a focused review of where a CS team is losing time to manual work, ending in a prioritized shortlist of what to build first), a workshop called "Finding Your Team\'s First AI Win" (a working session that leaves a team with one AI opportunity scoped and ready to build), and an ongoing Advisory Retainer for a CS leader building AI into their team\'s workflow. He is also open to speaking at CS meetups, virtual events, or internal team sessions, with three talk topics listed on the site (the four-pattern framework, finding a team\'s first AI win, and moving from ad hoc prompts to a written playbook) — inquiries for any of these go to the email on the Connect tab.',
   '',
   'CONTACT: Email ryanseanmurphy@yahoo.com, or LinkedIn at linkedin.com/in/ryan-murphy-52191629.',
 ].join('\n');

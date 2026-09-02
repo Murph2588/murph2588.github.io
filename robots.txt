@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://murph2588.github.io/sitemap.xml
